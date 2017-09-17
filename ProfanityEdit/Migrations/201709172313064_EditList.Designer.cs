@@ -7,13 +7,13 @@ namespace ProfanityEdit.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Movie : IMigrationMetadata
+    public sealed partial class EditList : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Movie));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(EditList));
         
         string IMigrationMetadata.Id
         {
-            get { return "201709171513051_Movie"; }
+            get { return "201709172313064_EditList"; }
         }
         
         string IMigrationMetadata.Source

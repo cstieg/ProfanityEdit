@@ -3,7 +3,7 @@ namespace ProfanityEdit.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Profanity : DbMigration
+    public partial class GenerateMethod : DbMigration
     {
         public override void Up()
         {
@@ -12,7 +12,7 @@ namespace ProfanityEdit.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false),
+                        Name = c.String(nullable: false, maxLength: 20),
                         Description = c.String(),
                     })
                 .PrimaryKey(t => t.Id);

@@ -3,7 +3,7 @@ namespace ProfanityEdit.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Movie : DbMigration
+    public partial class Profanity : DbMigration
     {
         public override void Up()
         {

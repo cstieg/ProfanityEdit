@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C09114DD-BCC6-4E9D-9312-EDE602354988}</ProjectGuid>
+    <ProjectGuid>{CBADF8A5-C604-4C81-9FCE-EA195F612566}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -190,6 +190,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\EditListsController.cs" />
+    <Compile Include="Controllers\GenerateMethodsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
@@ -198,21 +200,31 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709162350503_Initial.cs" />
-    <Compile Include="Migrations\201709162350503_Initial.Designer.cs">
-      <DependentUpon>201709162350503_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201709172253145_Movie.cs" />
+    <Compile Include="Migrations\201709172253145_Movie.Designer.cs">
+      <DependentUpon>201709172253145_Movie.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709171513051_Movie.cs" />
-    <Compile Include="Migrations\201709171513051_Movie.Designer.cs">
-      <DependentUpon>201709171513051_Movie.cs</DependentUpon>
+    <Compile Include="Migrations\201709172257231_Profanity.cs" />
+    <Compile Include="Migrations\201709172257231_Profanity.Designer.cs">
+      <DependentUpon>201709172257231_Profanity.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709171700401_Profanity.cs" />
-    <Compile Include="Migrations\201709171700401_Profanity.Designer.cs">
-      <DependentUpon>201709171700401_Profanity.cs</DependentUpon>
+    <Compile Include="Migrations\201709172306076_GenerateMethod.cs" />
+    <Compile Include="Migrations\201709172306076_GenerateMethod.Designer.cs">
+      <DependentUpon>201709172306076_GenerateMethod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709172313064_EditList.cs" />
+    <Compile Include="Migrations\201709172313064_EditList.Designer.cs">
+      <DependentUpon>201709172313064_EditList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709172338066_EditList1.cs" />
+    <Compile Include="Migrations\201709172338066_EditList1.Designer.cs">
+      <DependentUpon>201709172338066_EditList1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\EditList.cs" />
+    <Compile Include="Models\GenerateMethod.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Movie.cs" />
@@ -278,16 +290,16 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Ratings\Create.cshtml" />
-    <Content Include="Views\Ratings\Delete.cshtml" />
-    <Content Include="Views\Ratings\Details.cshtml" />
-    <Content Include="Views\Ratings\Edit.cshtml" />
-    <Content Include="Views\Ratings\Index.cshtml" />
     <Content Include="Views\Movies\Create.cshtml" />
     <Content Include="Views\Movies\Delete.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Movies\Edit.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Ratings\Create.cshtml" />
+    <Content Include="Views\Ratings\Delete.cshtml" />
+    <Content Include="Views\Ratings\Details.cshtml" />
+    <Content Include="Views\Ratings\Edit.cshtml" />
+    <Content Include="Views\Ratings\Index.cshtml" />
     <Content Include="Views\Profanities\Create.cshtml" />
     <Content Include="Views\Profanities\Delete.cshtml" />
     <Content Include="Views\Profanities\Details.cshtml" />
@@ -298,6 +310,16 @@
     <Content Include="Views\Categories\Details.cshtml" />
     <Content Include="Views\Categories\Edit.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\GenerateMethods\Create.cshtml" />
+    <Content Include="Views\GenerateMethods\Delete.cshtml" />
+    <Content Include="Views\GenerateMethods\Details.cshtml" />
+    <Content Include="Views\GenerateMethods\Edit.cshtml" />
+    <Content Include="Views\GenerateMethods\Index.cshtml" />
+    <Content Include="Views\EditLists\Create.cshtml" />
+    <Content Include="Views\EditLists\Delete.cshtml" />
+    <Content Include="Views\EditLists\Details.cshtml" />
+    <Content Include="Views\EditLists\Edit.cshtml" />
+    <Content Include="Views\EditLists\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -318,14 +340,20 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709162350503_Initial.resx">
-      <DependentUpon>201709162350503_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709172253145_Movie.resx">
+      <DependentUpon>201709172253145_Movie.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709171513051_Movie.resx">
-      <DependentUpon>201709171513051_Movie.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709172257231_Profanity.resx">
+      <DependentUpon>201709172257231_Profanity.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201709171700401_Profanity.resx">
-      <DependentUpon>201709171700401_Profanity.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709172306076_GenerateMethod.resx">
+      <DependentUpon>201709172306076_GenerateMethod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709172313064_EditList.resx">
+      <DependentUpon>201709172313064_EditList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709172338066_EditList1.resx">
+      <DependentUpon>201709172338066_EditList1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -344,7 +372,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49691</DevelopmentServerPort>
+          <DevelopmentServerPort>49726</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:49691/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

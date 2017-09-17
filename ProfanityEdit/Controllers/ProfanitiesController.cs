@@ -13,8 +13,8 @@ namespace ProfanityEdit.Controllers
         // GET: Profanities
         public ActionResult Index()
         {
-            var profanity = db.Profanity.Include(p => p.Category);
-            return View(profanity.ToList());
+            var profanities = db.Profanities.Include(p => p.Category);
+            return View(profanities.ToList());
         }
 
         // GET: Profanities/Details/5
@@ -24,7 +24,7 @@ namespace ProfanityEdit.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Profanity profanity = db.Profanity.Find(id);
+            Profanity profanity = db.Profanities.Find(id);
             if (profanity == null)
             {
                 return HttpNotFound();
@@ -48,7 +48,7 @@ namespace ProfanityEdit.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Profanity.Add(profanity);
+                db.Profanities.Add(profanity);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -64,7 +64,7 @@ namespace ProfanityEdit.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Profanity profanity = db.Profanity.Find(id);
+            Profanity profanity = db.Profanities.Find(id);
             if (profanity == null)
             {
                 return HttpNotFound();
@@ -97,7 +97,7 @@ namespace ProfanityEdit.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Profanity profanity = db.Profanity.Find(id);
+            Profanity profanity = db.Profanities.Find(id);
             if (profanity == null)
             {
                 return HttpNotFound();
@@ -110,8 +110,8 @@ namespace ProfanityEdit.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Profanity profanity = db.Profanity.Find(id);
-            db.Profanity.Remove(profanity);
+            Profanity profanity = db.Profanities.Find(id);
+            db.Profanities.Remove(profanity);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
