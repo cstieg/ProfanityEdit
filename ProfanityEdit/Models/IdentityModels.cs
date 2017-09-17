@@ -32,5 +32,7 @@ namespace ProfanityEdit.Models
 
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Rating> Ratings { get; set; }
+        public DbSet<Profanity> Profanity { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }
