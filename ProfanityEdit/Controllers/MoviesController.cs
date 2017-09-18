@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using ProfanityEdit.Models;
+using ProfanityEdit.Modules.Srt;
 
 namespace ProfanityEdit.Controllers
 {
@@ -48,6 +49,10 @@ namespace ProfanityEdit.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                var srt = new Srt(movie.SubtitleText);
+
+
                 db.Movies.Add(movie);
                 db.SaveChanges();
                 return RedirectToAction("Index");

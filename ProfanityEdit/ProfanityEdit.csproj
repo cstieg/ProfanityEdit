@@ -264,6 +264,9 @@
     <Compile Include="Models\ObjectionableScene.cs" />
     <Compile Include="Models\Profanity.cs" />
     <Compile Include="Models\Rating.cs" />
+    <Compile Include="Modules\Srt\InvalidSrtException.cs" />
+    <Compile Include="Modules\Srt\Srt.cs" />
+    <Compile Include="Modules\Srt\SrtLine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -290,6 +293,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Site\main.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

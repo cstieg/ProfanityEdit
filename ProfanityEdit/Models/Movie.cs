@@ -24,6 +24,7 @@ namespace ProfanityEdit.Models
         public virtual int? RatingId { get; set; }
         public virtual Rating Rating { get; set; }
 
+        [DataType(DataType.MultilineText)]
         [StringLength(1048576)]
         public string SubtitleText { get; set; }
     }
