@@ -42,6 +42,9 @@ namespace ProfanityEdit.Models
 
         public DbSet<EditList> EditLists { get; set; }
 
+        public DbSet<EditListItem> EditListItems { get; set; }
+
+        public DbSet<ObjectionableScene> ObjectionableScenes { get; set; }
 
     }
 }

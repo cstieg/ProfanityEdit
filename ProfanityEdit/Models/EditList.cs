@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -26,5 +27,9 @@ namespace ProfanityEdit.Models
         [ForeignKey("GenerateMethod")]
         public virtual int GenerateMethodId { get; set; }
         public virtual GenerateMethod GenerateMethod { get; set; }
+        
+        [InverseProperty("EditList")]
+        public virtual List<EditListItem> EditListItems { get; set; }
+        
     }
 }
