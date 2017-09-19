@@ -30,19 +30,19 @@ namespace ProfanityEdit.Models
             return new ApplicationDbContext();
         }
 
-        public DbSet<Movie> Movies { get; set; }
+        public virtual DbSet<Movie> Movies { get; set; }
 
-        public DbSet<Rating> Ratings { get; set; }
+        public virtual DbSet<Rating> Ratings { get; set; }
 
-        public DbSet<Profanity> Profanities { get; set; }
+        public virtual DbSet<Profanity> Profanities { get; set; }
 
-        public DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
 
-        public DbSet<EditList> EditLists { get; set; }
+        public virtual DbSet<EditList> EditLists { get; set; }
 
-        public DbSet<EditListItem> EditListItems { get; set; }
+        public virtual DbSet<EditListItem> EditListItems { get; set; }
 
-        public DbSet<ObjectionableScene> ObjectionableScenes { get; set; }
+        public virtual DbSet<ObjectionableScene> ObjectionableScenes { get; set; }
 
     }
 }

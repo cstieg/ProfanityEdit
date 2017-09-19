@@ -190,9 +190,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\EditListItemsController.cs" />
+    <Compile Include="Controllers\EditListsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
+    <Compile Include="Controllers\ObjectionableScenesController.cs" />
     <Compile Include="Controllers\ProfanitiesController.cs" />
     <Compile Include="Controllers\RatingsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -254,12 +257,16 @@
     <Compile Include="Migrations\201709191514288_GenerateMethodEnum.Designer.cs">
       <DependentUpon>201709191514288_GenerateMethodEnum.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709191628558_uptodate1.cs" />
+    <Compile Include="Migrations\201709191628558_uptodate1.Designer.cs">
+      <DependentUpon>201709191628558_uptodate1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\EditList.cs" />
     <Compile Include="Models\EditListItem.cs" />
-    <Compile Include="Models\GenerateMethod.cs" />
+    <Compile Include="Models\GenerateMethodEnum.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Movie.cs" />
@@ -351,6 +358,21 @@
     <Content Include="Views\Categories\Edit.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
     <Content Include="Views\Movies\_ModifyPartial.cshtml" />
+    <Content Include="Views\ObjectionableScenes\Create.cshtml" />
+    <Content Include="Views\ObjectionableScenes\Delete.cshtml" />
+    <Content Include="Views\ObjectionableScenes\Details.cshtml" />
+    <Content Include="Views\ObjectionableScenes\Edit.cshtml" />
+    <Content Include="Views\ObjectionableScenes\Index.cshtml" />
+    <Content Include="Views\EditListItems\Create.cshtml" />
+    <Content Include="Views\EditListItems\Delete.cshtml" />
+    <Content Include="Views\EditListItems\Details.cshtml" />
+    <Content Include="Views\EditListItems\Edit.cshtml" />
+    <Content Include="Views\EditListItems\Index.cshtml" />
+    <Content Include="Views\EditLists\Create.cshtml" />
+    <Content Include="Views\EditLists\Delete.cshtml" />
+    <Content Include="Views\EditLists\Details.cshtml" />
+    <Content Include="Views\EditLists\Edit.cshtml" />
+    <Content Include="Views\EditLists\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -412,6 +434,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709191514288_GenerateMethodEnum.resx">
       <DependentUpon>201709191514288_GenerateMethodEnum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709191628558_uptodate1.resx">
+      <DependentUpon>201709191628558_uptodate1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -33,5 +33,17 @@ namespace ProfanityEdit.Models
         [ForeignKey("ObjectionableScene")]
         public virtual int? ObjectionableSceneId { get; set; }
         public virtual ObjectionableScene ObjectionableScene { get; set; }
+
+        public bool Equals(EditListItem editListItem)
+        {
+            return 
+                Description == editListItem.Description &&
+                StartTime == editListItem.StartTime &&
+                EndTime == editListItem.EndTime &&
+                Audio == editListItem.Audio &&
+                Video == editListItem.Video &&
+                ProfanityId == editListItem.ProfanityId &&
+                ObjectionableSceneId == editListItem.ObjectionableSceneId;
+        }
     }
 }

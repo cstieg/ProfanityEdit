@@ -50,15 +50,8 @@ namespace ProfanityEdit.Controllers
         {
             if (ModelState.IsValid)
             {
-
-                var srt = new Srt(movie.SubtitleText);
-
-                var editList = new EditList(movie, srt, db.Profanities.ToList());
-                if (movie.EditLists == null)
-                {
-                    movie.EditLists = new List<EditList>();
-                }
-                movie.EditLists.Add(editList);
+                // Convert subtitle text to edit list
+                ProcessSubtitleText(movie);
 
                 db.Movies.Add(movie);
                 db.SaveChanges();
@@ -81,6 +74,9 @@ namespace ProfanityEdit.Controllers
             {
                 return HttpNotFound();
             }
+
+            movie.EditLists = db.EditLists.Where(e => e.MovieId == movie.Id).ToList();
+
             ViewBag.RatingId = new SelectList(db.Ratings, "Id", "Name", movie.RatingId);
             return View(movie);
         }
@@ -94,6 +90,9 @@ namespace ProfanityEdit.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Convert subtitle text to edit list
+                ProcessSubtitleText(movie);
+
                 db.Entry(movie).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -135,6 +134,31 @@ namespace ProfanityEdit.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+
+
+        private void ProcessSubtitleText(Movie movie)
+        {
+            var srt = new Srt(movie.SubtitleText);
+            movie.EditLists = db.EditLists.Where(e => e.MovieId == movie.Id).ToList();
+            var editList = new EditList(movie, srt, db.Profanities.ToList());
+            if (movie.EditLists == null)
+            {
+                movie.EditLists = new List<EditList>();
+            }
+            else
+            {
+                for (int i = 0; i < movie.EditLists.Count; i++)
+                {
+                    if (editList.Equals(movie.EditLists[i]))
+                    {
+                        return;
+                    }
+                }
+            }
+            db.EditLists.Add(editList);
+            movie.EditLists.Add(editList);
         }
     }
 }
