@@ -190,8 +190,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
-    <Compile Include="Controllers\EditListsController.cs" />
-    <Compile Include="Controllers\GenerateMethodsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
@@ -251,6 +249,10 @@
     <Compile Include="Migrations\201709181413046_ObjectionableScene1.cs" />
     <Compile Include="Migrations\201709181413046_ObjectionableScene1.Designer.cs">
       <DependentUpon>201709181413046_ObjectionableScene1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709191514288_GenerateMethodEnum.cs" />
+    <Compile Include="Migrations\201709191514288_GenerateMethodEnum.Designer.cs">
+      <DependentUpon>201709191514288_GenerateMethodEnum.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -348,16 +350,6 @@
     <Content Include="Views\Categories\Details.cshtml" />
     <Content Include="Views\Categories\Edit.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
-    <Content Include="Views\GenerateMethods\Create.cshtml" />
-    <Content Include="Views\GenerateMethods\Delete.cshtml" />
-    <Content Include="Views\GenerateMethods\Details.cshtml" />
-    <Content Include="Views\GenerateMethods\Edit.cshtml" />
-    <Content Include="Views\GenerateMethods\Index.cshtml" />
-    <Content Include="Views\EditLists\Create.cshtml" />
-    <Content Include="Views\EditLists\Delete.cshtml" />
-    <Content Include="Views\EditLists\Details.cshtml" />
-    <Content Include="Views\EditLists\Edit.cshtml" />
-    <Content Include="Views\EditLists\Index.cshtml" />
     <Content Include="Views\Movies\_ModifyPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -417,6 +409,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709181413046_ObjectionableScene1.resx">
       <DependentUpon>201709181413046_ObjectionableScene1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709191514288_GenerateMethodEnum.resx">
+      <DependentUpon>201709191514288_GenerateMethodEnum.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

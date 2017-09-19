@@ -38,8 +38,6 @@ namespace ProfanityEdit.Models
 
         public DbSet<Category> Categories { get; set; }
 
-        public DbSet<GenerateMethod> GenerateMethods { get; set; }
-
         public DbSet<EditList> EditLists { get; set; }
 
         public DbSet<EditListItem> EditListItems { get; set; }

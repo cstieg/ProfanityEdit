@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProfanityEdit.Models
@@ -27,5 +28,8 @@ namespace ProfanityEdit.Models
         [DataType(DataType.MultilineText)]
         [StringLength(1048576)]
         public string SubtitleText { get; set; }
+
+        [InverseProperty("Movie")]
+        public virtual List<EditList> EditLists { get; set; }
     }
 }

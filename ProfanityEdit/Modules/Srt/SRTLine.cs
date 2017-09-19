@@ -4,7 +4,7 @@
     {
         public int LineNumber { get; set; }
         public float StartTime { get; set; }
-        public float FinishTime { get; set; }
+        public float EndTime { get; set; }
         public string Text { get; set; }
 
         public static float SrtTimeToSeconds(string srtTime)

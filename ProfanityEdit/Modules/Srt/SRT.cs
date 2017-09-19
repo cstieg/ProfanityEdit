@@ -25,8 +25,8 @@ namespace ProfanityEdit.Modules.Srt
             SrtLine nextLine = GetNextLine();
             while (nextLine != null)
             {
-                nextLine = GetNextLine();
                 SrtLines.Add(nextLine);
+                nextLine = GetNextLine();
             }
         }
 
@@ -76,7 +76,7 @@ namespace ProfanityEdit.Modules.Srt
                 throw new InvalidSrtException("Invalid time data in SRT file -- \r\n" + line);
             }
             srtLine.StartTime = SrtLine.SrtTimeToSeconds(line.Substring(0, 12));
-            srtLine.FinishTime = SrtLine.SrtTimeToSeconds(line.Substring(17, 12));
+            srtLine.EndTime = SrtLine.SrtTimeToSeconds(line.Substring(17, 12));
 
             // 3rd Line - String
             line = _reader.ReadLine();

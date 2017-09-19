@@ -4,6 +4,7 @@ using System.Net;
 using System.Web.Mvc;
 using ProfanityEdit.Models;
 using ProfanityEdit.Modules.Srt;
+using System.Collections.Generic;
 
 namespace ProfanityEdit.Controllers
 {
@@ -52,6 +53,12 @@ namespace ProfanityEdit.Controllers
 
                 var srt = new Srt(movie.SubtitleText);
 
+                var editList = new EditList(movie, srt, db.Profanities.ToList());
+                if (movie.EditLists == null)
+                {
+                    movie.EditLists = new List<EditList>();
+                }
+                movie.EditLists.Add(editList);
 
                 db.Movies.Add(movie);
                 db.SaveChanges();
