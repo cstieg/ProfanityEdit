@@ -439,6 +439,12 @@
       <DependentUpon>201709191628558_uptodate1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\_Reusables\C#\StringHelper\StringHelper.csproj">
+      <Project>{dff3ef94-9144-45eb-be2d-9bde93671212}</Project>
+      <Name>StringHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

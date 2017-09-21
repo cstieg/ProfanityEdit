@@ -1,4 +1,5 @@
 ﻿using ProfanityEdit.Modules.Srt;
+using StringHelper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -53,8 +54,12 @@ namespace ProfanityEdit.Models
                 for (int j = 0; j < srt.SrtLines.Count; j++)
                 {
                     var subtitleText = srt.SrtLines[j].Text;
-                    if (Regex.IsMatch(subtitleText, profanity))
+
+                    var matches = subtitleText.FindWildcardMatches(profanity);
+                    for (int k = 0; k < matches.Count; k++)
                     {
+                        var match = matches[k];
+  
                         // add new editlistitem
                         var editListItem = new EditListItem()
                         {
