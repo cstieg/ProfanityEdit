@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using ProfanityEdit.Models;
+using System.Xml;
 
 namespace ProfanityEdit.Controllers
 {

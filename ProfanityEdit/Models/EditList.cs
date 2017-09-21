@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text.RegularExpressions;
 
 namespace ProfanityEdit.Models
 {
@@ -49,27 +48,27 @@ namespace ProfanityEdit.Models
 
             for (int i = 0; i < profanities.Count; i++)
             {
-                var profanity = profanities[i].Word;
+                var profanity = profanities[i];
 
                 for (int j = 0; j < srt.SrtLines.Count; j++)
                 {
-                    var subtitleText = srt.SrtLines[j].Text;
+                    var srtLine = srt.SrtLines[j];
 
-                    var matches = subtitleText.FindWildcardMatches(profanity);
+                    var matches = srtLine.Text.FindWildcardMatches(profanity.Word);
                     for (int k = 0; k < matches.Count; k++)
                     {
                         var match = matches[k];
-  
+
                         // add new editlistitem
                         var editListItem = new EditListItem()
                         {
-                            StartTime = srt.SrtLines[i].StartTime,
-                            EndTime = srt.SrtLines[i].EndTime,
+                            StartTime = srtLine.StartTime,
+                            EndTime = srtLine.EndTime,
                             Audio = true,
                             Video = false,
-                            Profanity = profanities[i],
-                            ProfanityId = profanities[i].Id,
-                            Description = subtitleText
+                            Profanity = profanity,
+                            ProfanityId = profanity.Id,
+                            Description = srtLine.Text
                         };
                         EditListItems.Add(editListItem);
                     }
