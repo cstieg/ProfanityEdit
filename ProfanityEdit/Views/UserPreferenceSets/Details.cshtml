@@ -1,0 +1,34 @@
+﻿@model ProfanityEdit.Models.UserPreferenceSet
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UserPreferenceSet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SkipAudio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SkipAudio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SkipVideo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SkipVideo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

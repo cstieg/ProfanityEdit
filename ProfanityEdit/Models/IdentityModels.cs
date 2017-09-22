@@ -44,5 +44,8 @@ namespace ProfanityEdit.Models
 
         public virtual DbSet<ObjectionableScene> ObjectionableScenes { get; set; }
 
+        public virtual DbSet<UserPreferenceSet> UserPreferenceSets { get; set; }
+
+        public virtual DbSet<UserPreferenceItem> UserPreferenceItems { get; set; }
     }
 }

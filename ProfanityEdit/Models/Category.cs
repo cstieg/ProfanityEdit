@@ -12,5 +12,9 @@ namespace ProfanityEdit.Models
         public string Name { get; set; }
 
         public string Description { get; set; }
+
+        //TODO:
+        //public bool DefaultAudio
+        //public bool DefaultVideo
     }
 }

@@ -157,6 +157,7 @@ namespace ProfanityEdit.Controllers
                     }
                 }
             }
+            editList.EditListItems.SortByStartTime();
             db.EditLists.Add(editList);
             movie.EditLists.Add(editList);
         }

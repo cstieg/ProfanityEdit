@@ -198,6 +198,8 @@
     <Compile Include="Controllers\ObjectionableScenesController.cs" />
     <Compile Include="Controllers\ProfanitiesController.cs" />
     <Compile Include="Controllers\RatingsController.cs" />
+    <Compile Include="Controllers\UserPreferenceItemsController.cs" />
+    <Compile Include="Controllers\UserPreferenceSetsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -261,6 +263,10 @@
     <Compile Include="Migrations\201709191628558_uptodate1.Designer.cs">
       <DependentUpon>201709191628558_uptodate1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709221726056_UserPreference.cs" />
+    <Compile Include="Migrations\201709221726056_UserPreference.Designer.cs">
+      <DependentUpon>201709221726056_UserPreference.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -273,6 +279,8 @@
     <Compile Include="Models\ObjectionableScene.cs" />
     <Compile Include="Models\Profanity.cs" />
     <Compile Include="Models\Rating.cs" />
+    <Compile Include="Models\UserPreferenceItem.cs" />
+    <Compile Include="Models\UserPreferenceSet.cs" />
     <Compile Include="Modules\Srt\InvalidSrtException.cs" />
     <Compile Include="Modules\Srt\Srt.cs" />
     <Compile Include="Modules\Srt\SrtLine.cs" />
@@ -374,6 +382,16 @@
     <Content Include="Views\EditLists\Details.cshtml" />
     <Content Include="Views\EditLists\Edit.cshtml" />
     <Content Include="Views\EditLists\Index.cshtml" />
+    <Content Include="Views\UserPreferenceItems\Create.cshtml" />
+    <Content Include="Views\UserPreferenceItems\Delete.cshtml" />
+    <Content Include="Views\UserPreferenceItems\Details.cshtml" />
+    <Content Include="Views\UserPreferenceItems\Edit.cshtml" />
+    <Content Include="Views\UserPreferenceItems\Index.cshtml" />
+    <Content Include="Views\UserPreferenceSets\Create.cshtml" />
+    <Content Include="Views\UserPreferenceSets\Delete.cshtml" />
+    <Content Include="Views\UserPreferenceSets\Details.cshtml" />
+    <Content Include="Views\UserPreferenceSets\Edit.cshtml" />
+    <Content Include="Views\UserPreferenceSets\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -438,6 +456,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709191628558_uptodate1.resx">
       <DependentUpon>201709191628558_uptodate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709221726056_UserPreference.resx">
+      <DependentUpon>201709221726056_UserPreference.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
