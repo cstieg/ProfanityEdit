@@ -4,6 +4,10 @@ using System.Net;
 using System.Web.Mvc;
 using ProfanityEdit.Models;
 using System.Xml;
+using System;
+using System.IO;
+using System.Xml.Linq;
+using System.Net.Mime;
 
 namespace ProfanityEdit.Controllers
 {
@@ -117,6 +121,88 @@ namespace ProfanityEdit.Controllers
             return RedirectToAction("Index");
         }
 
+
+
+
+        public ActionResult DownloadXspf(int id)
+        {
+            EditList editList = db.EditLists.Find(id);
+            if (editList == null)
+            {
+                return HttpNotFound();
+            }
+
+            // Create XSPF document foundation
+            XNamespace ns = @"http://xspf.org/ns/o";
+            XNamespace vlcNs = @"http://www.videolan.org/vlc/playlist/ns/o";
+            XDocument doc = new XDocument(new XDeclaration("1.0", "UTF-8", null), 
+                new XElement(ns+"playlist",
+                    new XAttribute(XNamespace.Xmlns+"vlc", vlcNs.NamespaceName),
+                    new XElement(ns+"title", "Playlist"),
+                    new XElement(ns+"trackList")));
+
+            // Process
+            editList.EditListItems.Sort(new Comparison<EditListItem>(CompStartTime));
+            
+            float startTime = 0.000F;
+            float endTime = 0.000F;
+            int trackId = 0;
+            for (int i = 0; i < editList.EditListItems.Count; i++)
+            {
+                var editListItem = editList.EditListItems[i];
+                endTime = editListItem.StartTime;
+
+                // add clear video
+                AddVideoSegmentToXspf(doc, ns, vlcNs, trackId, startTime, endTime, false);
+                trackId++;
+
+                // add muted video
+                AddVideoSegmentToXspf(doc, ns, vlcNs, trackId, editListItem.StartTime, editListItem.EndTime, true);
+                trackId++;
+
+                startTime = editListItem.EndTime;
+            }
+
+            // final segment
+            AddVideoSegmentToXspf(doc, ns, vlcNs, trackId, startTime, 0, false);
+
+
+            var fileStream = new MemoryStream();
+            doc.Save(fileStream);
+            fileStream.Position = 0;
+            var cd = new ContentDisposition
+            {
+                FileName = "example.xspf",
+                Inline = false
+            };
+            Response.AppendHeader("Content-Disposition", cd.ToString());
+            return new FileStreamResult(fileStream, "text/xml");
+        }
+        
+        private void AddVideoSegmentToXspf(XDocument doc, XNamespace ns, XNamespace vlcNs, int id, float startTime, float stopTime, bool muted = false)
+        {
+            XElement trackList = doc.Descendants(ns+"trackList").First();
+            XElement extension = new XElement(ns + "extension",
+                        new XAttribute("application", @"http://www.videolan.org/vlc/playlist/0"),
+                        new XElement(vlcNs + "id", id.ToString()),
+                        new XElement(vlcNs + "option", @"start-time=" + startTime.ToString()),
+                        new XElement(vlcNs + "option", @"stop-time=" + stopTime.ToString()));
+            trackList.Add(
+                new XElement(ns+"track",
+                    new XElement(ns+"location", @"dvd:///f:/#1"),
+                    extension));
+
+            if (muted)
+            {
+                extension.Add(new XElement(vlcNs+"option", "no-audio"));
+            }
+        }
+
+        private int CompStartTime(EditListItem a, EditListItem b)
+        {
+            return a.StartTime.CompareTo(b.StartTime);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -126,4 +212,5 @@ namespace ProfanityEdit.Controllers
             base.Dispose(disposing);
         }
     }
+
 }
