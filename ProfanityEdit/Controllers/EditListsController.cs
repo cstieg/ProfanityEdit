@@ -34,6 +34,10 @@ namespace ProfanityEdit.Controllers
             {
                 return HttpNotFound();
             }
+
+            // Order by start time
+            editList.EditListItems = editList.EditListItems.OrderBy(e => e.StartTime).ToList();
+
             return View(editList);
         }
 

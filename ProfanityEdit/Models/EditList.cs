@@ -95,11 +95,4 @@ namespace ProfanityEdit.Models
 
     }
 
-    public static class EditListHelper
-    {
-        public static void SortByStartTime(this List<EditListItem> editListItems)
-        {
-            EditListItem.SortByStartTime(editListItems);
-        }
-    }
 }

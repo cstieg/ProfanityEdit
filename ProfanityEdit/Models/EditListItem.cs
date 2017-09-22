@@ -48,15 +48,5 @@ namespace ProfanityEdit.Models
                 ProfanityId == editListItem.ProfanityId &&
                 ObjectionableSceneId == editListItem.ObjectionableSceneId;
         }
-
-        public static void SortByStartTime(List<EditListItem> editListItems)
-        {
-            editListItems.Sort(new Comparison<EditListItem>(CompareStartTimes));
-        }
-
-        public static int CompareStartTimes(EditListItem a, EditListItem b)
-        {
-            return a.StartTime.CompareTo(b.StartTime);
-        }
     }
 }

@@ -12,7 +12,7 @@ public class Xspf
     public Stream EditListToXspf(EditList editList, UserPreferenceSet preferenceSet)
     {
         // Make sure editList is sorted
-        editList.EditListItems.SortByStartTime();
+        var editListItems = editList.EditListItems.OrderBy(e => e.StartTime).ToList();
 
         // Create XSPF document foundation
         XDocument doc = new XDocument(new XDeclaration("1.0", "UTF-8", null),
@@ -25,9 +25,16 @@ public class Xspf
         float startTime = 0.000F;
         float endTime = 0.000F;
         int trackId = 0;
-        for (int i = 0; i < editList.EditListItems.Count; i++)
+        for (int i = 0; i < editListItems.Count(); i++)
         {
-            var editListItem = editList.EditListItems[i];
+            // Ignore objectionables allowed by preference set
+
+
+
+
+
+
+            var editListItem = editListItems[i];
             endTime = editListItem.StartTime;
 
             // add clear video
