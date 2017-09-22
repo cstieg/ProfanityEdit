@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProfanityEdit.Models
 {
-    public class ObjectionableScene
+    public class ObjectionableScene : IObjectionable
     {
         [Key]
         public int Id { get; set; }

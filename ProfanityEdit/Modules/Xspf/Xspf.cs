@@ -27,14 +27,15 @@ public class Xspf
         int trackId = 0;
         for (int i = 0; i < editListItems.Count(); i++)
         {
-            // Ignore objectionables allowed by preference set
-
-
-
-
-
-
             var editListItem = editListItems[i];
+
+            // Ignore objectionables allowed by preference set
+            if (IsAllowableObjectionable(editListItem.Profanity, preferenceSet) ||
+                IsAllowableObjectionable(editListItem.ObjectionableScene, preferenceSet))
+            {
+                continue;
+            }
+
             endTime = editListItem.StartTime;
 
             // add clear video
@@ -58,6 +59,16 @@ public class Xspf
         return fileStream;
     }
 
+    public bool IsAllowableObjectionable(IObjectionable objectionable, UserPreferenceSet preferenceSet)
+    {
+        if (objectionable == null)
+        {
+            return false;
+        }
+
+        int? levelAllowed = preferenceSet.UserPreferenceItems.Single(p => p.CategoryId == objectionable.CategoryId).AllowLevel;
+        return (levelAllowed == null || objectionable.Level <= levelAllowed);
+    }
 
     private void AddVideoSegmentToXspf(XDocument doc, XNamespace ns, XNamespace vlcNs, int id, float startTime, float stopTime, bool muted = false)
     {
@@ -77,5 +88,7 @@ public class Xspf
             extension.Add(new XElement(vlcNs + "option", "no-audio"));
         }
     }
+
+    
 
 }
