@@ -9,7 +9,7 @@ public class Xspf
     XNamespace ns = @"http://xspf.org/ns/o";
     XNamespace vlcNs = @"http://www.videolan.org/vlc/playlist/ns/o";
 
-    public Stream EditListToXspf(EditList editList)
+    public Stream EditListToXspf(EditList editList, UserPreferenceSet preferenceSet)
     {
         // Make sure editList is sorted
         editList.EditListItems.SortByStartTime();

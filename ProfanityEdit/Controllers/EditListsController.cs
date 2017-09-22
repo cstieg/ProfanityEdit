@@ -132,7 +132,11 @@ namespace ProfanityEdit.Controllers
                 return HttpNotFound();
             }
 
-            Stream stream = new Xspf().EditListToXspf(editList);
+            // Todo: get preference set id from user
+            int userPreferenceSetId = 0;
+            UserPreferenceSet preferenceSet = db.UserPreferenceSets.Find(userPreferenceSetId);
+
+            Stream stream = new Xspf().EditListToXspf(editList, preferenceSet);
 
             var cd = new ContentDisposition
             {
