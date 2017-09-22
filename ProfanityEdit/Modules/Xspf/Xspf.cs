@@ -12,6 +12,9 @@ public class Xspf
 
     public Stream EditListToXspf(EditList editList)
     {
+        // Make sure editList is sorted
+        editList.EditListItems.SortByStartTime();
+
         // Create XSPF document foundation
         XDocument doc = new XDocument(new XDeclaration("1.0", "UTF-8", null),
             new XElement(ns + "playlist",
@@ -20,8 +23,6 @@ public class Xspf
                 new XElement(ns + "trackList")));
 
         // Process
-        editList.EditListItems.Sort(new Comparison<EditListItem>(CompStartTime));
-
         float startTime = 0.000F;
         float endTime = 0.000F;
         int trackId = 0;
@@ -69,11 +70,6 @@ public class Xspf
         {
             extension.Add(new XElement(vlcNs + "option", "no-audio"));
         }
-    }
-
-    private int CompStartTime(EditListItem a, EditListItem b)
-    {
-        return a.StartTime.CompareTo(b.StartTime);
     }
 
 }

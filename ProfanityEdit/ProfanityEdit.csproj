@@ -276,6 +276,7 @@
     <Compile Include="Modules\Srt\InvalidSrtException.cs" />
     <Compile Include="Modules\Srt\Srt.cs" />
     <Compile Include="Modules\Srt\SrtLine.cs" />
+    <Compile Include="Modules\Xspf\Xspf.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

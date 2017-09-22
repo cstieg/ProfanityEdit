@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProfanityEdit.Models
@@ -33,6 +35,7 @@ namespace ProfanityEdit.Models
         [ForeignKey("ObjectionableScene")]
         public virtual int? ObjectionableSceneId { get; set; }
         public virtual ObjectionableScene ObjectionableScene { get; set; }
+        public static Comparison<EditListItem> CompareStartTime { get; private set; }
 
         public bool Equals(EditListItem editListItem)
         {
@@ -44,6 +47,16 @@ namespace ProfanityEdit.Models
                 Video == editListItem.Video &&
                 ProfanityId == editListItem.ProfanityId &&
                 ObjectionableSceneId == editListItem.ObjectionableSceneId;
+        }
+
+        public static void SortByStartTime(List<EditListItem> editListItems)
+        {
+            editListItems.Sort(new Comparison<EditListItem>(CompareStartTimes));
+        }
+
+        public static int CompareStartTimes(EditListItem a, EditListItem b)
+        {
+            return a.StartTime.CompareTo(b.StartTime);
         }
     }
 }
