@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BeginCollectionItem, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BeginCollectionItem.1.2.1.0\lib\net35\BeginCollectionItem.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -271,6 +274,10 @@
     <Compile Include="Migrations\201709221751429_UserPreferenceDescription.Designer.cs">
       <DependentUpon>201709221751429_UserPreferenceDescription.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709231827115_UserPreferenceSetForeignKey.cs" />
+    <Compile Include="Migrations\201709231827115_UserPreferenceSetForeignKey.Designer.cs">
+      <DependentUpon>201709231827115_UserPreferenceSetForeignKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -280,6 +287,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\IObjectionable.cs" />
     <Compile Include="Models\ObjectionableScene.cs" />
     <Compile Include="Models\Profanity.cs" />
     <Compile Include="Models\Rating.cs" />
@@ -396,6 +404,9 @@
     <Content Include="Views\UserPreferenceSets\Details.cshtml" />
     <Content Include="Views\UserPreferenceSets\Edit.cshtml" />
     <Content Include="Views\UserPreferenceSets\Index.cshtml" />
+    <Content Include="Views\UserPreferenceSets\_ModifyPartial.cshtml" />
+    <Content Include="Views\UserPreferenceSets\_UserPreferenceItemPartial.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Collection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -466,6 +477,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709221751429_UserPreferenceDescription.resx">
       <DependentUpon>201709221751429_UserPreferenceDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709231827115_UserPreferenceSetForeignKey.resx">
+      <DependentUpon>201709231827115_UserPreferenceSetForeignKey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

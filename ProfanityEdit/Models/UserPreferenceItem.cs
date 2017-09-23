@@ -8,9 +8,13 @@ namespace ProfanityEdit.Models
         [Key]
         public int Id { get; set; }
 
+        [ForeignKey("UserPreferenceSet")]
+        public virtual int UserPreferenceSetId { get; set; }
+        public virtual UserPreferenceSet UserPreferenceSet { get; set; }
+
         [ForeignKey("Category")]
-        public int CategoryId { get; set; }
-        public Category Category { get; set; }
+        public virtual int CategoryId { get; set; }
+        public virtual Category Category { get; set; }
 
         public int AllowLevel { get; set; }
     }

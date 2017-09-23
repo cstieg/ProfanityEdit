@@ -2,7 +2,10 @@
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using HtmlHelpers.BeginCollectionItem;
 using ProfanityEdit.Models;
+using System.Collections.Generic;
+
 
 namespace ProfanityEdit.Controllers
 {
@@ -34,7 +37,14 @@ namespace ProfanityEdit.Controllers
         // GET: UserPreferenceSets/Create
         public ActionResult Create()
         {
-            return View();
+            // for each category, append record to userPreferenceItem
+
+            List<Category> categories = db.Categories.ToList();
+            UserPreferenceSet ups = new UserPreferenceSet();
+            ups.InitializeUserPreferenceItems(categories);
+
+
+            return View(ups);
         }
 
         // POST: UserPreferenceSets/Create
@@ -42,7 +52,7 @@ namespace ProfanityEdit.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Description,Preset,SkipAudio,SkipVideo")] UserPreferenceSet userPreferenceSet)
+        public ActionResult Create([Bind(Include = "Id,Description,Preset,SkipAudio,SkipVideo,UserPreferenceItems")] UserPreferenceSet userPreferenceSet)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +72,10 @@ namespace ProfanityEdit.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             UserPreferenceSet userPreferenceSet = db.UserPreferenceSets.Find(id);
+
+            // Add user preference item list
+            userPreferenceSet.UserPreferenceItems = db.UserPreferenceItems.Where(u => u.UserPreferenceSetId == userPreferenceSet.Id).ToList();
+
             if (userPreferenceSet == null)
             {
                 return HttpNotFound();
@@ -74,7 +88,7 @@ namespace ProfanityEdit.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Description,Preset,SkipAudio,SkipVideo")] UserPreferenceSet userPreferenceSet)
+        public ActionResult Edit([Bind(Include = "Id,Description,Preset,SkipAudio,SkipVideo,UserPreferenceItems")] UserPreferenceSet userPreferenceSet)
         {
             if (ModelState.IsValid)
             {
