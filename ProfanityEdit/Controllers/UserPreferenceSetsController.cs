@@ -92,6 +92,13 @@ namespace ProfanityEdit.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Set state of UserPreferenceItems to Modified also, so they are saved
+                for (int i = 0; i < userPreferenceSet.UserPreferenceItems.Count; i++)
+                {
+                    db.Entry(userPreferenceSet.UserPreferenceItems[i]).State = EntityState.Modified;
+                }
+
+
                 db.Entry(userPreferenceSet).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

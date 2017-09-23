@@ -278,6 +278,10 @@
     <Compile Include="Migrations\201709231827115_UserPreferenceSetForeignKey.Designer.cs">
       <DependentUpon>201709231827115_UserPreferenceSetForeignKey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709232014599_UserPreferenceItemVirtual.cs" />
+    <Compile Include="Migrations\201709232014599_UserPreferenceItemVirtual.Designer.cs">
+      <DependentUpon>201709232014599_UserPreferenceItemVirtual.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -480,6 +484,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709231827115_UserPreferenceSetForeignKey.resx">
       <DependentUpon>201709231827115_UserPreferenceSetForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709232014599_UserPreferenceItemVirtual.resx">
+      <DependentUpon>201709232014599_UserPreferenceItemVirtual.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

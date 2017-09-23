@@ -16,6 +16,7 @@ namespace ProfanityEdit.Models
         public virtual int CategoryId { get; set; }
         public virtual Category Category { get; set; }
 
+        [Range(0, 10)]
         public int AllowLevel { get; set; }
     }
 }

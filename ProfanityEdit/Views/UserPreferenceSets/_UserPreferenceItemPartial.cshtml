@@ -3,23 +3,31 @@
 <div class="form-group">
     @using (Html.BeginCollectionItem("UserPreferenceItems"))
     {
+        if (ViewBag.Title == "Edit")
+        {
+            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.UserPreferenceSetId)
+        }
+        @Html.HiddenFor(model => model.CategoryId)
+
+
+
         <div class="control-label col-md-2">
             @Html.LabelFor(model => model.AllowLevel, Model.Category.Name)
         </div>
         <div class="col-md-10">
-            @Html.EditorFor(model => model.AllowLevel, new { htmlAttributes =  new { type = "range", list = "levels" } })
+            @Html.EditorFor(model => model.AllowLevel, new { htmlAttributes =  new { type = "range", list = "levels", max="10" } })
 
             <datalist id="levels">
             @for (var i = 0; i <=10; i++)
             {
                 <option value="@i" label="@i"/>
             }
-
             </datalist>
 
             @Html.ValidationMessageFor(model => model.AllowLevel, "", new { @class = "text-danger" })
         </div>
 
-        @Html.HiddenFor(model => model.CategoryId)
+        
     }
 </div>
