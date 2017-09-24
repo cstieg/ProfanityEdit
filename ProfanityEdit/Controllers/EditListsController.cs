@@ -137,8 +137,7 @@ namespace ProfanityEdit.Controllers
             }
 
             // Todo: get preference set id from user
-            int userPreferenceSetId = 0;
-            UserPreferenceSet preferenceSet = db.UserPreferenceSets.Find(userPreferenceSetId);
+            UserPreferenceSet preferenceSet = db.UserPreferenceSets.First();
 
             Stream stream = new Xspf().EditListToXspf(editList, preferenceSet);
 
