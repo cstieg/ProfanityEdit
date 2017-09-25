@@ -141,8 +141,12 @@ namespace ProfanityEdit.Controllers
         private void ProcessSubtitleText(Movie movie)
         {
             var srt = new Srt(movie.SubtitleText);
+
+
             movie.EditLists = db.EditLists.Where(e => e.MovieId == movie.Id).ToList();
             var editList = new EditList(movie, srt, db.Profanities.ToList());
+
+            // Don't add if identical editList already exists
             if (movie.EditLists == null)
             {
                 movie.EditLists = new List<EditList>();
@@ -162,6 +166,7 @@ namespace ProfanityEdit.Controllers
 
             db.EditLists.Add(editList);
             movie.EditLists.Add(editList);
+            db.SaveChanges();
         }
     }
 }
