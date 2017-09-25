@@ -131,17 +131,30 @@ namespace ProfanityEdit.Controllers
             string[] dataRow = csvParser.Read();
             while (dataRow != null)
             {
-                Profanity profanity = db.Profanities.Where(p => p.Word == dataRow[0]).SingleOrDefault();
+                string pWord = dataRow[0];
+                bool newEntry = false;
+                Profanity profanity = db.Profanities.Where(p => p.Word == pWord).SingleOrDefault();
+
                 if (profanity == null)
                 {
+                    newEntry = true;
                     profanity = new Profanity();
                 }
 
                 profanity.Word = dataRow[0];
                 profanity.CategoryId = int.Parse(dataRow[1]);
                 profanity.Level = int.Parse(dataRow[2]);
+                profanity.Ask = (dataRow[3].ToLower() == "yes");
 
-                db.Profanities.Add(profanity);
+                if (newEntry)
+                {
+                    db.Profanities.Add(profanity);
+                } 
+                else
+                {
+                    db.Entry(profanity).State = EntityState.Modified;
+                }
+
                 db.SaveChanges();
 
                 // read next row

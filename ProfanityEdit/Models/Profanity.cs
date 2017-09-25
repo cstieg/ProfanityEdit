@@ -16,5 +16,8 @@ namespace ProfanityEdit.Models
         public virtual Category Category { get; set; }
 
         public int Level { get; set; }
+
+        [Display(Description = "Check if the subtitle processor should ask if this word is profanity in its context")]
+        public bool Ask { get; set; }
     }
 }
