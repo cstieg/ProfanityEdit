@@ -3,6 +3,10 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using ProfanityEdit.Models;
+using ModelControllerHelpers;
+using System.Web;
+using CsvHelper;
+using System.IO;
 
 namespace ProfanityEdit.Controllers
 {
@@ -113,6 +117,40 @@ namespace ProfanityEdit.Controllers
             Profanity profanity = db.Profanities.Find(id);
             db.Profanities.Remove(profanity);
             db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult UploadProfanityCsv()
+        {
+            string deleteCurrent = Request.Params.Get("deleteCurrent");
+            if (Request.Params.Get("deleteCurrent") == "on")
+            {
+                db.Profanities.RemoveRange(db.Profanities.ToList());
+            }
+
+
+            HttpPostedFileBase file = ModelControllerHelper.GetFile(ModelState, Request, "profanityList");
+
+            StreamReader textReader = new StreamReader(file.InputStream);
+            var csvParser = new CsvParser(textReader);
+            string[] headerRow = csvParser.Read();
+            string[] dataRow = csvParser.Read();
+            while (dataRow != null)
+            {
+                Profanity profanity = new Profanity()
+                {
+                    Word = dataRow[0],
+                    CategoryId = int.Parse(dataRow[1]),
+                    Level = int.Parse(dataRow[2])
+                };
+                db.Profanities.Add(profanity);
+                db.SaveChanges();
+
+                // read next row
+                dataRow = csvParser.Read();
+            }
+
             return RedirectToAction("Index");
         }
 

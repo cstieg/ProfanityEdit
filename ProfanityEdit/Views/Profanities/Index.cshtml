@@ -43,3 +43,18 @@
 }
 
 </table>
+
+<hr />
+<form method="post" action="Profanities/UploadProfanityCsv" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="profanityList">Upload Csv file of profanities</label>
+        <input type="file" name="profanityList" />
+    </div>
+
+    <div class="form-group">
+        <label for="deleteCurrent">Delete current content in profanity table?</label>
+        <input type="checkbox" name="deleteCurrent" />
+    </div>
+
+    <input type="submit" name="Submit"/>
+</form>

@@ -48,6 +48,18 @@
     <Reference Include="BeginCollectionItem, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BeginCollectionItem.1.2.1.0\lib\net35\BeginCollectionItem.dll</HintPath>
     </Reference>
+    <Reference Include="CsvHelper">
+      <HintPath>..\packages\CsvHelper.2.16.3.0\lib\net45\CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="FParsec, Version=0.9.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvParser.0.5.2\lib\net40\FParsec.dll</HintPath>
+    </Reference>
+    <Reference Include="FParsecCS, Version=0.9.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvParser.0.5.2\lib\net40\FParsecCS.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvParser.0.5.2\lib\net40\FSharp.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -493,6 +505,10 @@
     <ProjectReference Include="..\..\_Reusables\C#\StringHelper\StringHelper.csproj">
       <Project>{dff3ef94-9144-45eb-be2d-9bde93671212}</Project>
       <Name>StringHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModelControllerHelper\ModelControllerHelpers.csproj">
+      <Project>{33fce5c9-f795-43bb-8f75-3926b4192c5d}</Project>
+      <Name>ModelControllerHelpers</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
