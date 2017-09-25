@@ -123,13 +123,6 @@ namespace ProfanityEdit.Controllers
         [HttpPost]
         public ActionResult UploadProfanityCsv()
         {
-            string deleteCurrent = Request.Params.Get("deleteCurrent");
-            if (Request.Params.Get("deleteCurrent") == "on")
-            {
-                db.Profanities.RemoveRange(db.Profanities.ToList());
-            }
-
-
             HttpPostedFileBase file = ModelControllerHelper.GetFile(ModelState, Request, "profanityList");
 
             StreamReader textReader = new StreamReader(file.InputStream);
@@ -138,12 +131,16 @@ namespace ProfanityEdit.Controllers
             string[] dataRow = csvParser.Read();
             while (dataRow != null)
             {
-                Profanity profanity = new Profanity()
+                Profanity profanity = db.Profanities.Where(p => p.Word == dataRow[0]).SingleOrDefault();
+                if (profanity == null)
                 {
-                    Word = dataRow[0],
-                    CategoryId = int.Parse(dataRow[1]),
-                    Level = int.Parse(dataRow[2])
-                };
+                    profanity = new Profanity();
+                }
+
+                profanity.Word = dataRow[0];
+                profanity.CategoryId = int.Parse(dataRow[1]);
+                profanity.Level = int.Parse(dataRow[2]);
+
                 db.Profanities.Add(profanity);
                 db.SaveChanges();
 
