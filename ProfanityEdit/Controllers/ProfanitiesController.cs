@@ -48,7 +48,7 @@ namespace ProfanityEdit.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Word,CategoryId,Level")] Profanity profanity)
+        public ActionResult Create([Bind(Include = "Id,Word,CategoryId,Level,Ask")] Profanity profanity)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace ProfanityEdit.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Word,CategoryId,Level")] Profanity profanity)
+        public ActionResult Edit([Bind(Include = "Id,Word,CategoryId,Level,Ask")] Profanity profanity)
         {
             if (ModelState.IsValid)
             {
