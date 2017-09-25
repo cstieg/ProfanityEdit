@@ -79,6 +79,10 @@ namespace ProfanityEdit.Models
 
         public bool Equals(EditList editList)
         {
+            if (EditListItems.Count != editList.EditListItems.Count)
+            {
+                return false;
+            }
             for (int i = 0; i < EditListItems.Count; i++)
             {
                 if (!EditListItems[i].Equals(editList.EditListItems[i]))
