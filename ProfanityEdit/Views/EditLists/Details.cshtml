@@ -91,7 +91,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ObjectionableScene.Description)
             </td>
-            <td>
+            <td class="@(item.Profanity.Ask ? "bold" : "")">
                 @Html.DisplayFor(modelItem => item.Profanity.Word)
             </td>
             <td>
