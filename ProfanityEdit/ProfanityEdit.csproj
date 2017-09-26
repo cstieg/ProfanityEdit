@@ -289,6 +289,22 @@
     <Compile Include="Migrations\201709251737052_ProfanityAsk.Designer.cs">
       <DependentUpon>201709251737052_ProfanityAsk.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709252102243_ApplicationUser.cs" />
+    <Compile Include="Migrations\201709252102243_ApplicationUser.Designer.cs">
+      <DependentUpon>201709252102243_ApplicationUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709252106188_ApplicationUser1.cs" />
+    <Compile Include="Migrations\201709252106188_ApplicationUser1.Designer.cs">
+      <DependentUpon>201709252106188_ApplicationUser1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709252120029_ApplicationUser2.cs" />
+    <Compile Include="Migrations\201709252120029_ApplicationUser2.Designer.cs">
+      <DependentUpon>201709252120029_ApplicationUser2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709252121539_ApplicationUser3.cs" />
+    <Compile Include="Migrations\201709252121539_ApplicationUser3.Designer.cs">
+      <DependentUpon>201709252121539_ApplicationUser3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -419,6 +435,7 @@
     <Content Include="Views\UserPreferenceSets\_UserPreferenceItemPartial.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Collection.cshtml" />
     <Content Include="Views\Profanities\_ModifyPartial.cshtml" />
+    <Content Include="Views\Manage\EditAccount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -498,6 +515,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709251737052_ProfanityAsk.resx">
       <DependentUpon>201709251737052_ProfanityAsk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709252102243_ApplicationUser.resx">
+      <DependentUpon>201709252102243_ApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709252106188_ApplicationUser1.resx">
+      <DependentUpon>201709252106188_ApplicationUser1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709252120029_ApplicationUser2.resx">
+      <DependentUpon>201709252120029_ApplicationUser2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709252121539_ApplicationUser3.resx">
+      <DependentUpon>201709252121539_ApplicationUser3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

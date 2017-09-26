@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -321,6 +320,35 @@ namespace ProfanityEdit.Controllers
             var result = await UserManager.AddLoginAsync(User.Identity.GetUserId(), loginInfo.Login);
             return result.Succeeded ? RedirectToAction("ManageLogins") : RedirectToAction("ManageLogins", new { Message = ManageMessageId.Error });
         }
+
+
+
+
+        public async Task<ActionResult> EditAccount()
+        {
+            var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            EditAccountViewModel model = new EditAccountViewModel()
+            {
+                DisplayName = user.DisplayName
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> EditAccount(EditAccountViewModel model)
+        {
+            var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+
+            if (ModelState.IsValid)
+            {
+                user.DisplayName = model.DisplayName;
+                await UserManager.UpdateAsync(user);
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
+
 
         protected override void Dispose(bool disposing)
         {

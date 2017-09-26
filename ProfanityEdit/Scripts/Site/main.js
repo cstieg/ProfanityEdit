@@ -8,6 +8,6 @@ function addTextFileToInput(targetId) {
     reader.onloadend = function () {
         var txt = reader.result;
         $target.val(txt);
-    }
+    };
     reader.readAsText(file);
 }

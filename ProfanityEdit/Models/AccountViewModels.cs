@@ -65,6 +65,11 @@ namespace ProfanityEdit.Models
     public class RegisterViewModel
     {
         [Required]
+        [StringLength(30)]
+        [Display(Name = "Display Name")]
+        public string DisplayName { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -108,5 +113,13 @@ namespace ProfanityEdit.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+    }
+
+    public class EditAccountViewModel
+    {
+        [Required]
+        [Display(Name = "Display Name")]
+        [StringLength(30)]
+        public string DisplayName { get; set; }
     }
 }

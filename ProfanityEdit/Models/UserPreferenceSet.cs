@@ -10,6 +10,9 @@ namespace ProfanityEdit.Models
         public int Id { get; set; }
 
         [InverseProperty("UserPreferenceSet")]
+        public virtual List<ApplicationUser> Users { get; set; }
+
+        [InverseProperty("UserPreferenceSet")]
         public virtual List<UserPreferenceItem> UserPreferenceItems { get; set; }
 
         [StringLength(100)]
