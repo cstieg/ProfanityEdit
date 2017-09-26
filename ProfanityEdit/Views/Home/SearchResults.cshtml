@@ -1,0 +1,21 @@
+﻿@model List<ProfanityEdit.Models.Movie>
+
+@{
+    ViewBag.Title = "Search Results";
+}
+
+<h2>Search Results</h2>
+
+<ul>
+    @foreach (var movie in Model)
+    {
+        <li>@movie.Name
+            <ul>
+                @foreach (var editList in movie.EditLists)
+                {
+                    <li>@editList.Name</li>
+                }
+            </ul>
+        </li>
+    }
+</ul>
