@@ -74,7 +74,7 @@ namespace ProfanityEdit.Controllers
 
             var cd = new ContentDisposition
             {
-                FileName = "example.xspf",
+                FileName = editList.Movie.Name + ".xspf",
                 Inline = false
             };
             Response.AppendHeader("Content-Disposition", cd.ToString());
