@@ -305,6 +305,14 @@
     <Compile Include="Migrations\201709252121539_ApplicationUser3.Designer.cs">
       <DependentUpon>201709252121539_ApplicationUser3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709261803273_ApplicationUser4.cs" />
+    <Compile Include="Migrations\201709261803273_ApplicationUser4.Designer.cs">
+      <DependentUpon>201709261803273_ApplicationUser4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709262044218_MakeXspfViewModel.cs" />
+    <Compile Include="Migrations\201709262044218_MakeXspfViewModel.Designer.cs">
+      <DependentUpon>201709262044218_MakeXspfViewModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -312,6 +320,7 @@
     <Compile Include="Models\EditListItem.cs" />
     <Compile Include="Models\GenerateMethodEnum.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\MakeXspfViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\IObjectionable.cs" />
@@ -432,11 +441,12 @@
     <Content Include="Views\UserPreferenceSets\Edit.cshtml" />
     <Content Include="Views\UserPreferenceSets\Index.cshtml" />
     <Content Include="Views\UserPreferenceSets\_ModifyPartial.cshtml" />
-    <Content Include="Views\UserPreferenceSets\_UserPreferenceItemPartial.cshtml" />
+    <Content Include="Views\Shared\_UserPreferenceItemPartial.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Collection.cshtml" />
     <Content Include="Views\Profanities\_ModifyPartial.cshtml" />
     <Content Include="Views\Manage\EditAccount.cshtml" />
     <Content Include="Views\Home\SearchResults.cshtml" />
+    <Content Include="Views\Home\MakeXspf.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -529,8 +539,18 @@
     <EmbeddedResource Include="Migrations\201709252121539_ApplicationUser3.resx">
       <DependentUpon>201709252121539_ApplicationUser3.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709261803273_ApplicationUser4.resx">
+      <DependentUpon>201709261803273_ApplicationUser4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709262044218_MakeXspfViewModel.resx">
+      <DependentUpon>201709262044218_MakeXspfViewModel.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\_Reusables\C#\ObjectHelper\ObjectHelper.csproj">
+      <Project>{6e7fcfb9-5536-4418-ac96-60ff5972b9d2}</Project>
+      <Name>ObjectHelper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\_Reusables\C#\StringHelper\StringHelper.csproj">
       <Project>{dff3ef94-9144-45eb-be2d-9bde93671212}</Project>
       <Name>StringHelper</Name>

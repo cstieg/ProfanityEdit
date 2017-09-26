@@ -13,7 +13,7 @@
             <ul>
                 @foreach (var editList in movie.EditLists)
                 {
-                    <li>@editList.Name</li>
+                    <li>@Html.ActionLink(editList.Name, "MakeXspf", new { id = editList.Id })</li>
                 }
             </ul>
         </li>
