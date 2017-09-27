@@ -16,6 +16,19 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.EditListId)
 
+        <div class="form-group radio">
+            @foreach (var preset in ViewBag.PreferenceSetPresets)
+            {
+                <input type="radio" name="preset" value="@preset.Id"/>@preset.Description<br />
+                <div class="hidden"></div>
+            }
+            <br />
+            <input type="radio" name="preset" value="Custom" />Custom:
+        </div>
+
+
+        <hr />
+
         <div class="form-group">
             @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -23,10 +36,6 @@
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
         </div>
-
-
-
-
 
         <div class="form-group">
             @Html.LabelFor(model => model.SkipAudio, htmlAttributes: new { @class = "control-label col-md-2" })

@@ -54,6 +54,8 @@ namespace ProfanityEdit.Controllers
                 EditListId = id,
             };
             ObjectHelper.CopyProperties(preferenceSet, model, new List<string>() { "Id" });
+
+            ViewBag.PreferenceSetPresets = preferenceSetPresets;
             return View(model);
         }
 
@@ -66,9 +68,18 @@ namespace ProfanityEdit.Controllers
                 return HttpNotFound();
             }
 
-            UserPreferenceSet preferenceSet = new UserPreferenceSet();
-            ObjectHelper.CopyProperties(model, preferenceSet, new List<string>() { "EditListId" });
+            UserPreferenceSet preferenceSet;
 
+            try
+            {
+                int presetId = int.Parse(Request.Params.Get("preset"));
+                preferenceSet = db.UserPreferenceSets.Find(presetId);
+            }
+            catch       
+            {
+                preferenceSet = new UserPreferenceSet();
+                ObjectHelper.CopyProperties(model, preferenceSet, new List<string>() { "EditListId" });
+            }
 
             Stream stream = new Xspf().EditListToXspf(editList, preferenceSet);
 
