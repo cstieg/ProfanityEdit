@@ -11,3 +11,6 @@ function addTextFileToInput(targetId) {
     };
     reader.readAsText(file);
 }
+
+// select first preset radio button
+$('.presets input[name="preset"]').first().attr('checked', 'true');
