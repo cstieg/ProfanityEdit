@@ -14,3 +14,11 @@ function addTextFileToInput(targetId) {
 
 // select first preset radio button
 $('.presets input[name="preset"]').first().attr('checked', 'true');
+
+function showClass(className) {
+    $('.' + className).removeClass('hidden');
+}
+
+function hideClass(className) {
+    $('.' + className).addClass('hidden');
+}
