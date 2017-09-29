@@ -47,15 +47,13 @@ namespace ProfanityEdit.Controllers
                 preferenceSet = db.UserPreferenceSets.Where(u => u.Preset == true).First();
             }
 
-            List<UserPreferenceSet> preferenceSetPresets = db.UserPreferenceSets.Where(u => u.Preset == true).ToList();
-
             MakeXspfViewModel model = new MakeXspfViewModel()
             {
                 EditListId = id,
             };
             ObjectHelper.CopyProperties(preferenceSet, model, new List<string>() { "Id" });
 
-            ViewBag.PreferenceSetPresets = preferenceSetPresets;
+            ViewBag.PreferenceSetPresets = db.UserPreferenceSets.Where(u => u.Preset == true).ToList();
             return View(model);
         }
 

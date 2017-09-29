@@ -6,7 +6,7 @@
 
 <h2>Make Edited Movie</h2>
 
-@using (Html.BeginForm("DownloadXspf", "Home", "Get"))
+@using (Html.BeginForm("DownloadXspf", "Home", FormMethod.Get))
 {
     @Html.AntiForgeryToken()
 
@@ -73,3 +73,5 @@
     </div>
 
 }
+
+<script>window.onload = function () { setPreset(); };</script>

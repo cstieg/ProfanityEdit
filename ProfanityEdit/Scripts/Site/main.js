@@ -13,7 +13,17 @@ function addTextFileToInput(targetId) {
 }
 
 // select first preset radio button
-$('.presets input[name="preset"]').first().attr('checked', 'true');
+function setPreset() {
+    var presetId = $('#EditListId').val();
+    var $preset = $('.presets input[name="preset"][value="' + presetId + '"]');
+    if ($preset.length == 0) {
+        $('.presets input[name="preset"][value="Custom"]').attr('checked', 'true');
+        showClass('customPreferences');
+    }
+    else {
+        $preset.attr('checked', 'true');
+    }
+};
 
 function showClass(className) {
     $('.' + className).removeClass('hidden');
