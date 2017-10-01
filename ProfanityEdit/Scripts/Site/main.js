@@ -12,12 +12,12 @@ function addTextFileToInput(targetId) {
     reader.readAsText(file);
 }
 
-// select first preset radio button
+// select radio button
 function setPreset() {
-    var presetId = $('#EditListId').val();
-    var $preset = $('.presets input[name="preset"][value="' + presetId + '"]');
+    var preferenceSetId = $('#selectedPreferenceSetId').text();
+    var $preset = $('.presets input[name="preferenceSet"][value="' + preferenceSetId + '"]');
     if ($preset.length == 0) {
-        $('.presets input[name="preset"][value="Custom"]').attr('checked', 'true');
+        $('.presets input[name="preferenceSet"][value="custom"]').attr('checked', 'true');
         showClass('customPreferences');
     }
     else {

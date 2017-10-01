@@ -313,6 +313,26 @@
     <Compile Include="Migrations\201709262044218_MakeXspfViewModel.Designer.cs">
       <DependentUpon>201709262044218_MakeXspfViewModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709292221267_SelectedPreferenceSet.cs" />
+    <Compile Include="Migrations\201709292221267_SelectedPreferenceSet.Designer.cs">
+      <DependentUpon>201709292221267_SelectedPreferenceSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709301612496_SelectedPreferenceSet1.cs" />
+    <Compile Include="Migrations\201709301612496_SelectedPreferenceSet1.Designer.cs">
+      <DependentUpon>201709301612496_SelectedPreferenceSet1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709301643398_SelectedPreferenceSet2.cs" />
+    <Compile Include="Migrations\201709301643398_SelectedPreferenceSet2.Designer.cs">
+      <DependentUpon>201709301643398_SelectedPreferenceSet2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709302159096_BackToViewModel.cs" />
+    <Compile Include="Migrations\201709302159096_BackToViewModel.Designer.cs">
+      <DependentUpon>201709302159096_BackToViewModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709302229005_UserPreferenceSetId.cs" />
+    <Compile Include="Migrations\201709302229005_UserPreferenceSetId.Designer.cs">
+      <DependentUpon>201709302229005_UserPreferenceSetId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -545,12 +565,23 @@
     <EmbeddedResource Include="Migrations\201709262044218_MakeXspfViewModel.resx">
       <DependentUpon>201709262044218_MakeXspfViewModel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709292221267_SelectedPreferenceSet.resx">
+      <DependentUpon>201709292221267_SelectedPreferenceSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709301612496_SelectedPreferenceSet1.resx">
+      <DependentUpon>201709301612496_SelectedPreferenceSet1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709301643398_SelectedPreferenceSet2.resx">
+      <DependentUpon>201709301643398_SelectedPreferenceSet2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709302159096_BackToViewModel.resx">
+      <DependentUpon>201709302159096_BackToViewModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709302229005_UserPreferenceSetId.resx">
+      <DependentUpon>201709302229005_UserPreferenceSetId.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\_Reusables\C#\ObjectHelper\ObjectHelper.csproj">
-      <Project>{6e7fcfb9-5536-4418-ac96-60ff5972b9d2}</Project>
-      <Name>ObjectHelper</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\_Reusables\C#\StringHelper\StringHelper.csproj">
       <Project>{dff3ef94-9144-45eb-be2d-9bde93671212}</Project>
       <Name>StringHelper</Name>

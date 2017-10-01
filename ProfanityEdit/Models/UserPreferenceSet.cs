@@ -10,6 +10,9 @@ namespace ProfanityEdit.Models
         public int Id { get; set; }
 
         [InverseProperty("UserPreferenceSet")]
+        public virtual List<ApplicationUser> Owner { get; set; }
+
+        [InverseProperty("SelectedPreferenceSet")]
         public virtual List<ApplicationUser> Users { get; set; }
 
         [InverseProperty("UserPreferenceSet")]
@@ -23,6 +26,13 @@ namespace ProfanityEdit.Models
         public bool SkipAudio { get; set; }
 
         public bool SkipVideo { get; set; }
+
+        public UserPreferenceSet() { }
+
+        public UserPreferenceSet(List<Category> categories)
+        {
+            InitializeUserPreferenceItems(categories);
+        }
 
         public void InitializeUserPreferenceItems(List<Category> categories)
         {
@@ -43,6 +53,22 @@ namespace ProfanityEdit.Models
                     UserPreferenceItems.Add(upi);
                 }
             }
+        }
+
+        public void CopyUserPreferenceItems(UserPreferenceSet preferenceSet)
+        {
+            for (int i = 0; i < UserPreferenceItems.Count; i++)
+            {
+                var pSetPreferenceItem = preferenceSet.UserPreferenceItems.Find(p => p.CategoryId == UserPreferenceItems[i].CategoryId);
+                pSetPreferenceItem.AllowLevel = UserPreferenceItems[i].AllowLevel;
+            }
+        }
+
+        public void CopyUserPreferenceSet(UserPreferenceSet preferenceSet)
+        {
+            SkipAudio = preferenceSet.SkipAudio;
+            SkipVideo = preferenceSet.SkipVideo;
+            CopyUserPreferenceItems(preferenceSet);
         }
     }
 }

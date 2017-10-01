@@ -14,10 +14,13 @@ namespace ProfanityEdit.Models
         [StringLength(30)]
         public string DisplayName { get; set; }
 
+        [ForeignKey("SelectedPreferenceSet")]
+        public int? SelectedPreferenceSetId { get; set; }
+        public virtual UserPreferenceSet SelectedPreferenceSet { get; set; }
+
         [ForeignKey("UserPreferenceSet")]
         public int? UserPreferenceSetId { get; set; }
         public virtual UserPreferenceSet UserPreferenceSet { get; set; }
-
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
